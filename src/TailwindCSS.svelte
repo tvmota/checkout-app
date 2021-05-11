@@ -1,7 +1,11 @@
 <style global>
   @tailwind base;
-  body {
-    @apply font-sans bg-indigo-200;
+  #app {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 104px repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
   }
   @tailwind components;
   @tailwind utilities;

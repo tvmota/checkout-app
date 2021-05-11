@@ -1,6 +1,13 @@
 import { defineConfig } from 'vite';
 import svelte from '@sveltejs/vite-plugin-svelte';
+import autopreprocess from "svelte-preprocess";
+
+const preprocess = autopreprocess({
+  postcss: {
+    plugins: [require("tailwindcss")]
+  }
+});
 
 export default defineConfig({
-  plugins: [svelte()]
+  plugins: [svelte({ preprocess })],
 });
