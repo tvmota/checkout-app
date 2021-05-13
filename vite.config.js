@@ -10,4 +10,7 @@ const preprocess = autopreprocess({
 
 export default defineConfig({
   plugins: [svelte({ preprocess })],
+  optimizeDeps: {
+    include: ['svelte-hero-icons'],
+  },
 });
