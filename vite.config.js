@@ -4,8 +4,11 @@ import autopreprocess from "svelte-preprocess";
 
 const preprocess = autopreprocess({
   postcss: {
-    plugins: [require("tailwindcss")]
-  }
+    plugins: [
+      require('postcss-nested'),
+      require("tailwindcss")
+    ],
+  },
 });
 
 export default defineConfig({
