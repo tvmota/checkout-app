@@ -2,9 +2,9 @@
   import TailwindCSS from './TailwindCSS.svelte';
   import AppHeader from './components/custom/AppHeader.svelte';
   import Step from './components/common/Step.svelte';
+  import CardInfo from './components/custom/CardInfo.svelte';
   import Icon, { ChevronLeft } from 'svelte-hero-icons';
   import addCard from './assets/addCard.svg';
-  import emptyCard from './assets/emptyCard.svg';
 </script>
 
 <TailwindCSS />
@@ -29,23 +29,7 @@
           <img alt="add card logo" src={addCard}>
           <p>Adicione um novo cartão de crédito</p>
         </div>
-        <div class="checkout__content__body__card__info checkout__content__body__card__info--invalid">
-          <div class="checkout__content__body__card__info__brand">
-            <p>Visa</p>
-          </div>
-          <div class="checkout__content__body__card__info__number">
-            <p>
-              ****&nbsp;
-              ****&nbsp;
-              ****&nbsp;
-              ****
-            </p>
-          </div>
-          <div class="checkout__content__body__card__info__name">
-            <p>Nome do Fulano</p>
-            <p>06/26</p>
-          </div>
-        </div>
+        <CardInfo />
       </div>
       <div class="checkout__content__body__form">
       </div>
@@ -109,45 +93,6 @@
             letter-spacing: -0.01px;
             font-size: 20px;
             @apply text-white font-bold;
-          }
-        }
-
-        &__info {
-          margin-top: 31px;
-          width: 365px;
-          height: 224px;
-          padding: 35.5px 27px 37.5px 33.5px;
-
-          &--invalid {
-            background-image: url("./assets/emptyCard.svg");
-            background-repeat: no-repeat;
-            background-position: center top;
-
-            .checkout__content__body__card__info__brand {
-              @apply hidden;
-            }
-
-            .checkout__content__body__card__info__number {
-              margin-top: 48.7px;
-
-              p {
-                letter-spacing: 5.2px;
-                text-shadow: 0px 1px 2px #000000B3;
-                font-size: 24px;
-                line-height: 27px;
-                @apply text-white text-justify uppercase;
-              }
-            }
-
-            .checkout__content__body__card__info__name {
-              margin-top: 34px;
-              @apply flex justify-between;
-
-              p {
-                text-shadow: 0px 1px 2px #000000B3;
-                @apply text-base text-white uppercase;
-              }
-            }
           }
         }
       }
@@ -233,39 +178,6 @@
               @apply mr-4;
             }
           }
-
-          &__info {
-            width: 280px;
-            height: 172.5px;
-            margin-top: 16px;
-            padding: 0px 14px;
-
-            &--invalid {
-              background-size: cover;
-
-              .checkout__content__body__card__info__number {
-                margin-top: 78px;
-
-                p {
-                  letter-spacing: 4.6px;
-                  text-shadow: 0px 1px 2px #000000B3;
-                  font-size: 19px;
-                  line-height: 20px;
-                  @apply text-white text-justify uppercase;
-                }
-              }
-
-              .checkout__content__body__card__info__name {
-                margin-top: 34px;
-                @apply flex justify-between;
-
-                p {
-                  text-shadow: 0px 1px 2px #000000B3;
-                  @apply text-xs text-white uppercase;
-                }
-              }
-            }
-          }
         }
       }
     }
@@ -310,39 +222,6 @@
               @apply mr-4;
             }
           }
-
-          &__info {
-            width: 280px;
-            height: 172.5px;
-            margin-top: 16px;
-            padding: 0px 14px;
-
-            &--invalid {
-              background-size: cover;
-
-              .checkout__content__body__card__info__number {
-                margin-top: 78px;
-
-                p {
-                  letter-spacing: 4.6px;
-                  text-shadow: 0px 1px 2px #000000B3;
-                  font-size: 19px;
-                  line-height: 20px;
-                  @apply text-white text-justify uppercase;
-                }
-              }
-
-              .checkout__content__body__card__info__name {
-                margin-top: 34px;
-                @apply flex justify-between;
-
-                p {
-                  text-shadow: 0px 1px 2px #000000B3;
-                  @apply text-xs text-white uppercase;
-                }
-              }
-            }
-          }
         }
       }
     }
@@ -385,39 +264,6 @@
               width: 40px;
               height: 40px;
               @apply mr-4;
-            }
-          }
-
-          &__info {
-            width: 280px;
-            height: 172.5px;
-            margin-top: 16px;
-            padding: 0px 14px;
-
-            &--invalid {
-              background-size: cover;
-
-              .checkout__content__body__card__info__number {
-                margin-top: 78px;
-
-                p {
-                  letter-spacing: 4.6px;
-                  text-shadow: 0px 1px 2px #000000B3;
-                  font-size: 19px;
-                  line-height: 20px;
-                  @apply text-white text-justify uppercase;
-                }
-              }
-
-              .checkout__content__body__card__info__name {
-                margin-top: 34px;
-                @apply flex justify-between;
-
-                p {
-                  text-shadow: 0px 1px 2px #000000B3;
-                  @apply text-xs text-white uppercase;
-                }
-              }
             }
           }
         }
