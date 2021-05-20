@@ -46,11 +46,12 @@
   .step__item--icon {
     width: 16px;
     height: 20px;
-    margin-right: 24px;
+    margin: 0 24px;
   }
 
   .step__item--text {
-    margin-right: 24px;
+    font-size: 13px;
+    line-height: 36px;
     @apply text-primary;
   }
 

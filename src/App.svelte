@@ -3,6 +3,7 @@
   import AppHeader from './components/custom/AppHeader.svelte';
   import Step from './components/common/Step.svelte';
   import CardInfo from './components/custom/CardInfo.svelte';
+  import CardForm from './components/custom/CardForm.svelte';
   import Icon, { ChevronLeft } from 'svelte-hero-icons';
   import addCard from './assets/addCard.svg';
 </script>
@@ -32,6 +33,7 @@
         <CardInfo />
       </div>
       <div class="checkout__content__body__form">
+        <CardForm />
       </div>
     </div>
   </div>
@@ -75,7 +77,7 @@
 
     &__body {
       margin-top: 54px;
-      @apply flex flex-wrap;
+      @apply flex;
 
       &__card {
         &__title {
@@ -95,6 +97,11 @@
             @apply text-white font-bold;
           }
         }
+      }
+
+      &__form {
+        margin-left: 92px;
+        width: 440px;
       }
     }
   }

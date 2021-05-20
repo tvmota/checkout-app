@@ -27,6 +27,7 @@
     "vite": "^2.3.0"
   },
   "dependencies": {
+    "payment": "^2.4.3",
     "svelte-hero-icons": "^2.2.0"
   }
 }
