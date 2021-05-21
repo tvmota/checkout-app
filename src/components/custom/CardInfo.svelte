@@ -1,31 +1,102 @@
 <script lang="ts">
+  import Payment from 'payment';
   import { cardStore } from '../../store/CardStore';
+  import amex from '../../assets/amex.svg';
+  import diners from '../../assets/diners.svg';
+  import discover from '../../assets/discover.svg';
+  import elo from '../../assets/elo.svg';
+  import hiper from '../../assets/hiper.svg';
+  import jcb from '../../assets/jcb.svg';
+  import laser from '../../assets/laser.svg';
+  import maestro from '../../assets/maestro.svg';
+  import master from '../../assets/master.svg';
+  import visa from '../../assets/visa.svg';
+  import unionPay from '../../assets/unionPay.svg';
+
+  const validCardCls = 'card__info__front__valid card__info__front-bkg--valid';
+  const invalidCardCls = 'card__info__front__invalid card__info__front-bkg--invalid';
+
+  $:validCard = Payment.fns.validateCardNumber($cardStore.cardNumber);
+  $:validCardValidity = Payment.fns.validateCardExpiry($cardStore.cardValidity);
+  $:cardType = Payment.fns.cardType($cardStore.cardNumber);
 </script>
 
 <div class="card">
   <div class="card__info">
-    <div class="card__info__front card__info__front__valid card__info__front-bkg--valid">
+    <div
+      class="{`card__info__front ${validCard ? validCardCls : invalidCardCls}`}">
       <div class="card__info__front__valid__brand">
-        <img src="https://raw.githubusercontent.com/aaronfagan/svg-credit-card-payment-icons/f2ceac03475fe15d3fe2bf007eb634b9fc6460fd/logo-border/visa.svg" alt="visa logo">
+        {#if cardType === 'amex'}
+          <img src={amex} alt="amex logo">
+        {/if}
+        {#if cardType === 'discover'}
+          <img src={discover} alt="discover logo">
+        {/if}
+        {#if cardType === 'dinersclub'}
+          <img src={diners} alt="dinersclub logo">
+        {/if}
+        {#if cardType === 'elo'}
+          <img src={elo} alt="elo logo">
+        {/if}
+        {#if cardType === 'hipercard'}
+          <img src={hiper} alt="hipercard logo">
+        {/if}
+        {#if cardType === 'jcb'}
+          <img src={jcb} alt="jcb logo">
+        {/if}
+        {#if cardType === 'laser'}
+          <img src={laser} alt="jcb logo">
+        {/if}
+        {#if cardType === 'maestro'}
+          <img src={maestro} alt="maestro logo">
+        {/if}
+        {#if cardType === 'mastercard'}
+          <img src={master} alt="mastercard logo">
+        {/if}
+        {#if cardType === 'visa'}
+          <img src={visa} alt="visa logo">
+        {/if}
+        {#if cardType === 'unionpay'}
+          <img src={unionPay} alt="unionpay logo">
+        {/if}
       </div>
-      <div class="card__info__front__valid__number">
-        <!--p>
-          * * * *&nbsp;&nbsp;
-          * * * *&nbsp;&nbsp;
-          * * * *&nbsp;&nbsp;
-          * * * *
-        </p-->
-        <p>
-          {$cardStore.cardNumber}
-        </p>
+      <div class="{validCard ? 'card__info__front__valid__number' : 'card__info__front__invalid__number'}">
+        {#if !validCard}
+          <p>
+            * * * *&nbsp;&nbsp;
+            * * * *&nbsp;&nbsp;
+            * * * *&nbsp;&nbsp;
+            * * * *
+          </p>
+        {/if}
+        {#if validCard}
+          <p>
+            {$cardStore.cardNumber}
+          </p>
+        {/if}
       </div>
-      <div class="card__info__front__valid__name">
-        <p>FELIPE B A PIO NT</p>
-        <p>06/26</p>
+      <div class="{validCard ? 'card__info__front__valid__name' : 'card__info__front__invalid__name'}">
+        {#if $cardStore.clientName}
+          <p>{$cardStore.clientName}</p>
+        {/if}
+        {#if !$cardStore.clientName}
+          <p>Nome do titular</p>
+        {/if}
+        {#if validCardValidity}
+          <p>{$cardStore.cardValidity}</p>
+        {/if}
+        {#if !validCardValidity}
+          <p>00/0000</p>
+        {/if}
       </div>
     </div>
-    <div class="card__info__back card__info__back-bkg--valid">
-      <p>* * *</p>
+    <div class="{`card__info__back ${validCard ? 'card__info__back-bkg--valid' : 'card__info__back-bkg--invalid'}`}">
+      {#if $cardStore.cardSecurityCode}
+        <p>{$cardStore.cardSecurityCode}</p>
+      {:else}
+        <p>* * *</p>
+      {/if}
+
     </div>
   </div>
 </div>
@@ -40,7 +111,6 @@
     &:hover .card__info{
       transform: rotateY(180deg);
     }
-    
 
     &__info {
       position: relative;
@@ -109,14 +179,18 @@
 
           &__brand {
             width: 70px;
-            height: 22px;
+            height: 44px;
+
+            img {
+              @apply w-full h-full object-contain;
+            }
           }
 
           &__number {
-            margin-top: 48px;
+            margin-top: 30px;
 
             p {
-              letter-spacing: 4.1px;
+              letter-spacing: 2.8px;
               text-shadow: 0px 1px 2px #000000B3;
               font-size: 22px;
               line-height: 28px;
@@ -157,7 +231,7 @@
 
         p {
           position: relative;
-          top: 108px;
+          top: 106px;
           left: 50%;
           font: normal normal normal 19px/28px SF Pro Text;
           letter-spacing: -0.57px;

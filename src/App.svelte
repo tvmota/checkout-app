@@ -143,6 +143,10 @@
       &__header {
         @apply justify-between;
       }
+
+      &__body {
+        @apply flex-wrap;
+      }
     }
   }
 
@@ -166,7 +170,7 @@
 
       &__body {
         margin-top: 30px;
-        @apply w-full;
+        @apply w-full flex-wrap;
 
         &__card {
           @apply flex flex-wrap justify-center;
@@ -210,7 +214,7 @@
 
       &__body {
         margin-top: 30px;
-        @apply w-full;
+        @apply w-full flex-wrap;
 
         &__card {
           @apply flex flex-wrap justify-center;
@@ -254,7 +258,7 @@
 
       &__body {
         margin-top: 30px;
-        @apply w-full;
+        @apply w-full flex-wrap;
 
         &__card {
           @apply flex flex-wrap justify-center;

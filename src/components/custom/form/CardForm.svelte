@@ -31,7 +31,6 @@
       .then(() => {
         cardStore.set(Object.assign(values, {
           cardNumber: Payment.fns.formatCardNumber(values.cardNumber),
-          cardType: Payment.fns.cardType(values.cardNumber),
         }));
       })
       .catch(err => (errors = extractErrors(err)));
@@ -42,29 +41,10 @@
       errors[evt.target.name] = null;
     }
 
-    if (values.cardNumber) {
-      cardStore.set(Object.assign(cardStore, {
-        cardNumber: Payment.fns.formatCardNumber(values.cardNumber),
-      }));
-    }
-
-    if (values.clientName) {
-      cardStore.set(Object.assign(cardStore, {
-        clientName: values.clientName,
-      }));
-    }
-
-    if (values.clientName) {
-      cardStore.set(Object.assign(cardStore, {
-        clientName: values.clientName,
-      }));
-    }
-
-    if (values.cardValidity) {
-      cardValidity.set(Object.assign(cardStore, {
-        cardValidity: values.cardValidity,
-      }));
-    }
+    console.log(values, Payment.fns.cardType(values.cardNumber));
+    cardStore.set(Object.assign(values, {
+      cardNumber: Payment.fns.formatCardNumber(values.cardNumber),
+    }));
   }
 </script>
 
