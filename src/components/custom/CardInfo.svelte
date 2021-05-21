@@ -284,11 +284,15 @@
 
             &__brand {
               width: 54px;
-              height: 18px;
+              height: 30px;
+
+              img {
+                @apply object-contain;
+              }
             }
 
             &__number {
-              margin-top: 34px;
+              margin-top: 24px;
 
               p {
                 letter-spacing: 3.52px;
@@ -365,11 +369,14 @@
 
             &__brand {
               width: 54px;
-              height: 18px;
-            }
+              height: 30px;
 
+              img {
+                @apply object-contain;
+              }
+            }
             &__number {
-              margin-top: 34px;
+              margin-top: 24px;
 
               p {
                 letter-spacing: 3.52px;
@@ -446,11 +453,15 @@
 
             &__brand {
               width: 54px;
-              height: 18px;
+              height: 30px;
+
+              img {
+                @apply object-contain;
+              }
             }
 
             &__number {
-              margin-top: 34px;
+              margin-top: 24px;
 
               p {
                 letter-spacing: 3.52px;

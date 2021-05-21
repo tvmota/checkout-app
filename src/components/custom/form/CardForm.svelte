@@ -2,6 +2,7 @@
   import Payment from 'payment';
   import { onMount } from 'svelte';
   import { formSchema } from './formSchema';
+  import { fakeRequest } from '../../../service/mockService';
   import { cardStore } from '../../../store/CardStore';
 
   let values = {};
@@ -25,15 +26,16 @@
     }, {});
   };
 
-  const submitHandler = () => {
-    formSchema
-      .validate(values, { abortEarly: false })
-      .then(() => {
-        cardStore.set(Object.assign(values, {
-          cardNumber: Payment.fns.formatCardNumber(values.cardNumber),
-        }));
-      })
-      .catch(err => (errors = extractErrors(err)));
+  const submitHandler = async () => {
+    try {
+      await formSchema.validate(values, { abortEarly: false });
+      const { data } = (await fakeRequest(true, 700))
+      const { result = '' } = data;
+      errors = {};
+      alert(`Return request data ${result}`);
+    } catch (err) {
+      errors = extractErrors(err);
+    }
   }
 
   const clearError = (evt) => {
@@ -41,7 +43,6 @@
       errors[evt.target.name] = null;
     }
 
-    console.log(values, Payment.fns.cardType(values.cardNumber));
     cardStore.set(Object.assign(values, {
       cardNumber: Payment.fns.formatCardNumber(values.cardNumber),
     }));
@@ -114,6 +115,7 @@
     <select
       name="numberParcels"
       bind:value={values.numberParcels}
+      on:change={clearError}
       class="{`${!values.numberParcels && 'disabled--option'} ${errors.numberParcels && 'form__control--error'}`}">
         <option value="" disabled selected>Número de parcelas</option>
         <option value="1">1</option>
@@ -198,7 +200,7 @@
         -o-appearance: none;
         appearance: none;
         background-color: transparent;
-        background-image: url('../../assets/chevronDown.svg');
+        background-image: url('../../../assets/chevronDown.svg');
         background-repeat: no-repeat, repeat;
         background-position: right .7em top 50%, 0 0;
         background-size: 18px 20px, 100%;
@@ -229,6 +231,42 @@
         line-height: 22px;
         padding: 16px 72px;
         @apply bg-primary rounded-xl text-white font-semibold uppercase;
+      }
+    }
+  }
+
+  @screen md {
+    .form {
+      &__submit {
+        margin-top: 30px;
+
+        button {
+          @apply w-full;
+        }
+      }
+    }
+  }
+
+  @screen sm {
+  .form {
+      &__submit {
+        margin-top: 30px;
+
+        button {
+          @apply w-full;
+        }
+      }
+    }
+  }
+
+  @screen xs {
+    .form {
+      &__submit {
+        margin-top: 30px;
+
+        button {
+          @apply w-full;
+        }
       }
     }
   }

@@ -136,6 +136,10 @@
   }
 
   @screen lg {
+    .app-main {
+      padding: 40px 0;
+    }
+
     .checkout__content {
       background: linear-gradient(90deg, #DE4B4B 0%, #DE4B4B 352px, #FFFFFF 353px, #FFFFFF 100%);
       padding: 50px 64px;
@@ -143,18 +147,19 @@
       &__header {
         @apply justify-between;
       }
-
-      &__body {
-        @apply flex-wrap;
-      }
     }
   }
 
   @screen md {
+    .app-main {
+      padding: 40px 0;
+    }
+
     .checkout__content {
       background: linear-gradient(180deg, #DE4B4B 0%, #DE4B4B 239px, #FFFFFF 240px, #FFFFFF 100%);
       width: 360px;
-      padding: 38px 14px;
+      padding: 40px 14px;
+      height: 100%;
 
       &__header {
         &__link {
@@ -190,15 +195,25 @@
             }
           }
         }
+
+        &__form {
+          width: 440px;
+          @apply ml-0;
+        }
       }
     }
   }
   
   @screen sm {
+    .app-main {
+      padding: 40px 0;
+    }
+
     .checkout__content {
       background: linear-gradient(180deg, #DE4B4B 0%, #DE4B4B 239px, #FFFFFF 240px, #FFFFFF 100%);
       width: 360px;
-      padding: 38px 14px;
+      padding: 40px 14px;
+      height: 100%;
 
       &__header {
         &__link {
@@ -234,15 +249,25 @@
             }
           }
         }
+
+        &__form {
+          width: 440px;
+          @apply ml-0;
+        }
       }
     }
   }
 
   @screen xs {
+    .app-main {
+      padding: 40px 0;
+    }
+
     .checkout__content {
       background: linear-gradient(180deg, #DE4B4B 0%, #DE4B4B 239px, #FFFFFF 240px, #FFFFFF 100%);
       width: 360px;
-      padding: 38px 14px;
+      padding: 40px 14px;
+      height: 100%;
 
       &__header {
         &__link {
@@ -277,6 +302,11 @@
               @apply mr-4;
             }
           }
+        }
+
+        &__form {
+          width: 440px;
+          @apply ml-0;
         }
       }
     }
