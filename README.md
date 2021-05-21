@@ -1,46 +1,36 @@
-# Exame - Bexs Front-end
+# 💳 Exame - Bexs Front-end
 
-## Desafio
+Projeto que simula um chekout criado com o [Vitejs](https://vitejs.dev/).
 
-Desenvolver uma aplicação front-end de acordo com as especificações descritas nos **requisitos** utilizando a _stack_ tecnologica de sua preferencia.
-
-- Desenvolva este Layout: https://xd.adobe.com/spec/9c4a9206-ac61-4050-796d-89c00fb79e91-ea7b
-- Utilize a tecnologia de sua preferencia (ReactJs, Angular, Angularjs, Vue.js, Jquery, Bootstrap, Material, Nodejs, Java, C#, PHP, etc).
-
-## Como entregar sua solução?
-
-1. Clone do repositório
-
-2. Tente explicar a evolução do projeto em _commits_.
-
-3. Caso use algum _task runner_/_module bundle_ - faça o commit da ultima versão build/bundle.
-
-4. Para nos enviar seu teste escolha uma das formas:
-
-### Gerar um patch:
-
-Para gerar o patch:
-
+### Instruções para execução
+##### Instalação das dependências
+```bash
+$ git clone https://github.com/tvmota/checkout-app
+$ cd checkout-app
+#----------Execução_Com_NPM---------
+$ npm i
+#----------Execução_Com_YARN---------
+$ yarn
 ```
-git format-patch origin/master --stdout > seu_nome.patch
+##### Execução - app disponível em localhost:3000
+```bash
+#----------Execução_Com_NPM---------
+$ npm run dev
+#----------Execução_Com_YARN---------
+$ yarn dev
+```
+##### Geração do build para deploy
+```bash
+#----------Execução_Com_NPM---------
+$ npm run build
+#----------Execução_Com_YARN---------
+$ yarn build
 ```
 
-Certifique que o patch irá funcionar executando >> `git apply seu_nome.patch` e nos envie através do email que entramos em contato
+### Libs utilizadas
 
-### Criando um repositório público:
-
-Crie um repositório em uma plataforma de pública de repositórios (GitHub, BitBucket, GitLab, etc) e nos envie através do email que entramos em contato.
-
-## Requisitos
-
-- Faça códigos legiveis e utilize uma arquitetura de fácil entendimento.
-- Edite este Readme ou crie um novo Markdown explicando como um DEV deveria utilizar o projeto
-
-## Bonus
-
-- Testes automatizados.
-- Crie uma camada que efetue uma chamada REST para um endpoint fictício "/pagar" - iremos analisar apenas a estrutura
-
-## Dúvidas
-
-Entre em contato e nos questione.
+- **Framework UI**: [Svelte](https://svelte.dev/)
+- **Toolkit CSS**: [TailwindCss](https://tailwindcss.com/)
+- **Icones**: [Heroicons](https://heroicons.com/)
+- **Validação de form**: [Yup](https://github.com/jquense/yup)
+- **Validação de Cartões**: [Payment](https://github.com/jessepollak/payment)
