@@ -1,3 +1,6 @@
+<script lang="ts">
+  import { cardStore } from '../../store/CardStore';
+</script>
 
 <div class="card">
   <div class="card__info">
@@ -13,7 +16,7 @@
           * * * *
         </p-->
         <p>
-          5149 4505 6231 6542
+          {$cardStore.cardNumber}
         </p>
       </div>
       <div class="card__info__front__valid__name">

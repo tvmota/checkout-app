@@ -3,7 +3,7 @@
   import AppHeader from './components/custom/AppHeader.svelte';
   import Step from './components/common/Step.svelte';
   import CardInfo from './components/custom/CardInfo.svelte';
-  import CardForm from './components/custom/CardForm.svelte';
+  import CardForm from './components/custom/form/CardForm.svelte';
   import Icon, { ChevronLeft } from 'svelte-hero-icons';
   import addCard from './assets/addCard.svg';
 </script>
