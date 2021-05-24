@@ -1,11 +1,7 @@
-export const fakeRequest = (success, timeout) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (success) {
-        resolve({ data: { result: 'OK' } });
-      } else {
-        reject({ message: 'Error' }) ;
-      }
-    }, timeout);
-  });
+const baseURL = 'https://test.api';
+const headers = {
+  'Content-type': 'application/json',
 }
+
+export const fakeRequest = () => fetch(`${baseURL}/pagar`, { headers })
+  .then(response => response.json());

@@ -2,7 +2,6 @@
   import Payment from 'payment';
   import { onMount } from 'svelte';
   import { formSchema } from './formSchema';
-  import { fakeRequest } from '../../../service/mockService';
   import { cardStore } from '../../../store/CardStore';
 
   let values = {};
@@ -29,10 +28,7 @@
   const submitHandler = async () => {
     try {
       await formSchema.validate(values, { abortEarly: false });
-      const { data } = (await fakeRequest(true, 700))
-      const { result = '' } = data;
       errors = {};
-      alert(`Return request data ${result}`);
     } catch (err) {
       errors = extractErrors(err);
     }
